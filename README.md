@@ -5,7 +5,7 @@ Google Keychain Utilities
 
 This is a collection of utilities for reading and reusing the authentication keys that official google installable applications store on your computer and as well as documentation from reversing the applications where appropriate.
 
-Where application, this application documents the corresponding functionality in the original application code
+Where applicable, this library documents the corresponding functionality in the original application code
 - For Python applications, `uncompyle6` can be used to decompile the distributed `.pyo` files. Most references are relative to the `site_packages` folder
 
 Currently supported target applications:
@@ -15,8 +15,8 @@ Currently supported target applications:
 	- Uses a standard OAuth2 authentication client which all secrets stored in the OS specific keyring
 	- The `client_id` and `client_secret` are hard coded into the `common/auth/oauth_constants.py` file
 
-Usage
------
+Prerequisites
+-------------
 
 If running from this repository:
 - Make sure you have Yarn installed
@@ -27,9 +27,12 @@ If using as a node_module
 - `import { ... methods ... } from 'google-keychain';`
 
 
+Usage
+-----
+
 NOTE: Running the below code requests accessing the other app's keychains, so you will likely be prompted for your password to gain access
 
-*Example 1:* Fetching credentials from an installed and signed-in instance of `Backup in Sync` and listing all files in the root of your Google Drive:
+**Example 1:** Fetching credentials from an installed and signed-in instance of `Backup in Sync` and listing all files in the root of your Google Drive:
 - Run `./samples/`
 
 
