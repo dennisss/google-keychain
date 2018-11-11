@@ -23,7 +23,7 @@ const drive = google.drive('v3');
 	console.log('Found ' + creds.length + ' google account(s)');
 	console.log('Using: ' + cred.email);
 	console.log('');
-	console.log('Allowed scopes:', cred.token.scopes);
+	console.log('Allowed scopes:', cred.token!.scopes);
 	console.log('');
 
 	// This client replaces any typical usage of an OAuth2Client for properly emulating the original app
