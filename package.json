@@ -1,6 +1,6 @@
 {
 	"name": "google-keychain",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Access system-wide Google API credentials (even behind Google Advanced Protection)",
 	"main": "dist/index.js",
 	"scripts": {
@@ -20,7 +20,7 @@
 		"@types/node": "^10.12.5",
 		"mocha": "^5.0.5",
 		"ts-node": "^7.0.1",
-		"typescript": "^2.8.1"
+		"typescript": "^3.1.6"
 	},
 	"files": [
 		"dist/**/*",

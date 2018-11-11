@@ -14,6 +14,11 @@ export class GoogleDriveClient extends OAuth2Client {
 
 	public constructor(cred: GoogleDriveCredential) {
 		let tok = cred.token;
+
+		if(!tok) {
+			throw new Error('Must provide a credential with a token available');
+		}
+
 		super(tok.client_id, tok.client_secret);
 
 		this.transporter = new SpoofedDefaultTransporter();
