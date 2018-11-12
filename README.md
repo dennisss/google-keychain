@@ -18,6 +18,8 @@ Currently supported target applications:
 Prerequisites
 -------------
 
+First this assumes that you have the `Backup and Sync` Google app installed and have signed in to it at some point. You don't need to have it running though.
+
 If running from this repository:
 - Make sure you have Yarn installed
 - Run `yarn install`
@@ -30,21 +32,24 @@ If using as a node_module
 Usage
 -----
 
-NOTE: Running the below code requests accessing the other app's keychains, so you will likely be prompted for your password to gain access
-
 **Example 1:** Fetching credentials from an installed and signed-in instance of `Backup in Sync` and listing all files in the root of your Google Drive:
-- Run `./samples/`
+- Run `./samples/list_drive.ts`
 
 
+NOTE: Running the above code requests accessing the other app's keychains, so you will likely be prompted for your password to gain access
 
 
 
 Use Cases
 ---------
 
+The main purpose of this is to allow developers to run their own trusted scripts on their computers even with APP enabled
+
+NOTE: This is not a Google vulnerability or security bug. You still need privileged access to the system and the ability to run native code to extract these credentials. The associated client_id and client_secrets are also not usable on web
+
 - Bypassing the `Advanced Protection Program` warning shown below in the image below
 	- Google's APP secures your account by preventing third party OAuth clients from accessing certain scopes on your account such as Google Drive access. But, they do allow their own official applications to access these scopes
-	- Because they support some completely client-side apps like the backup one, these priveleged client secrets are available offline and stored on your computer
+	- Because they support some completely client-side apps like the backup one, these privileged client secrets are available offline and stored on your computer
 	- By extracting the oauth secrets, you can spoof an official google application from your own code
 
 

@@ -12,14 +12,14 @@ import { AxiosRequestConfig } from 'axios';
  */
 export class GoogleDriveClient extends OAuth2Client {
 
-	public constructor(cred: GoogleDriveCredential) {
+	public constructor(cred: GoogleDriveCredential, redirect_url?: string) {
 		let tok = cred.token;
 
 		if(!tok) {
 			throw new Error('Must provide a credential with a token available');
 		}
 
-		super(tok.client_id, tok.client_secret);
+		super(tok.client_id, tok.client_secret, redirect_url);
 
 		this.transporter = new SpoofedDefaultTransporter();
 

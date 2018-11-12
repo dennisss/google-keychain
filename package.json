@@ -1,7 +1,7 @@
 {
 	"name": "google-keychain",
 	"version": "0.2.1",
-	"description": "Access system-wide Google API credentials (even behind Google Advanced Protection)",
+	"description": "Access system-wide Google API credentials (and locally bypass Google Advanced Protection)",
 	"main": "dist/index.js",
 	"scripts": {
 		"test": "./node_modules/.bin/mocha",

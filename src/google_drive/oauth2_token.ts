@@ -42,8 +42,6 @@ export class GoogleDriveOAuth2Token {
 
 	/**
 	 * This is not an offical behavior but typically each component of the token follows a standard format, so this verifies that the tokens 'look' valid without actually testing them against the google servers 
-	 * 
-	 * TODO: This is not complete yet
 	 */
 	public valid() : boolean {
 
@@ -56,9 +54,16 @@ export class GoogleDriveOAuth2Token {
 		var secret_valid = this.client_secret.length === 24;
 
 		// for these they must all be valid urls and should ideally be in the list of google documented scopes
-		//var scopes_valid = 
+		var url_regex = /^(((https?):\/\/)|\/)([a-z0-9\._\-&#\?=%]+)(:[0-9]+)?(\/[a-z0-9\._\-&#\?=%]+)*\/?$/i;
+		var scopes_valid = true;
+		for(let s of this.scopes) {
+			if(!url_regex.exec(s)) {
+				scopes_valid = false;
+				break;
+			}
+		}
 
-		return true;
+		return refresh_valid && id_valid && secret_valid && scopes_valid;
 	}
 }
 
