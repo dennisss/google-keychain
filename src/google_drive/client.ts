@@ -6,13 +6,21 @@ import { GetGoogleDriveUserAgent } from './user_agent';
 import { AxiosRequestConfig } from 'axios';
 
 /**
+ * NOTE: These are the only values permitted to be used with the Google Drive client ids
+ */
+export enum GoogleDriveRedirectUris {
+	OOB = 'urn:ietf:wg:oauth:2.0:oob',
+	OOBAuto = 'urn:ietf:wg:oauth:2.0:oob:auto'
+}
+
+/**
  * Use to access a Google API given fully authenticated credentials
  * 
  * NOTE: This can be used to authenticate to access any scope authorized api, it is just named a GoogleDriveClient because it will spoof the User-Agent of the Google Backup and Sync app (formerly known as the Google Drive app)
  */
 export class GoogleDriveClient extends OAuth2Client {
 
-	public constructor(cred: GoogleDriveCredential, redirect_url?: string) {
+	public constructor(cred: GoogleDriveCredential, redirect_url: GoogleDriveRedirectUris = GoogleDriveRedirectUris.OOBAuto) {
 		let tok = cred.token;
 
 		if(!tok) {
